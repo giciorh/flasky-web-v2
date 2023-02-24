@@ -16,11 +16,11 @@
   </head>
   <body>
     <div class="container">
-      <h1 class="text-center mt-2 mb-4">Flasky Web</h1>
+      <h1 class="text-center mt-2 mb-4"> {{ company_name }} Web</h1>
       <!-- img from unsplash.com by Markus Spiske -->
       <img class="img-fluid" id="banner" src="https://flasky-web.giciorh.repl.co/static/unsplash.jpg">
   
-      <h2 class="text-center">
+      <h2 class="text-center mt-2 mb-4">
         About Flasky
       </h2>
       <p class="lead">
@@ -29,9 +29,11 @@
       <h2 class="text-center mt-2 mb-4">
         Open Positions
       </h2>
-      <p>
-        TODO - show the list
-      </p>
+      <div>
+        {% for job in jobs %}
+          {% include 'jobitem.html' %}
+        {% endfor %}
+      </div>
       <div class="text-center">
         <button class="btn btn-primary btn-lg">Contact Us</button>
         <p class="mt-4">
