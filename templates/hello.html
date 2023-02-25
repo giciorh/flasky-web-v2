@@ -11,21 +11,33 @@
         height: 360px;
         object-fit: cover;
         width: 100%;
+        margin-bottom:16px;
       }
     </style>
   </head>
   <body>
+    {% include 'nav.html' %}
+    <img class="img-fluid" id="banner" src="https://flasky-web.giciorh.repl.co/static/unsplash.jpg">
+  
+    
     <div class="container">
       <h1 class="text-center mt-2 mb-4"> {{ company_name }} Web</h1>
-      <!-- img from unsplash.com by Markus Spiske -->
-      <img class="img-fluid" id="banner" src="https://flasky-web.giciorh.repl.co/static/unsplash.jpg">
-  
+      <!-- img's from unsplash.com by Markus Spiske, Jason Goodman -->
+<!--       
       <h2 class="text-center mt-2 mb-4">
         About Flasky
-      </h2>
-      <p class="lead">
+      </h2> -->
+      <div class="row">
+        <div class="col-md-6">
+        <p class="lead">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Volutpat lacus laoreet non curabitur gravida arcu. Bibendum enim facilisis gravida neque convallis a cras semper. Bibendum neque egestas congue quisque egestas. Enim ut sem viverra aliquet eget sit amet tellus cras. Ipsum suspendisse ultrices gravida dictum fusce ut placerat.
-      </p>
+        </p>
+          </div>
+        <div class="d-none d-md-block col-md-6">
+          <img src="/static/unsplash2.jpg" style="height:320px; border-radius:4px;"/>  
+        </div>
+        
+      </div>
       <h2 class="text-center mt-2 mb-4">
         Job Openings
       </h2>
@@ -35,13 +47,13 @@
         {% endfor %}
       </div>
       <div class="text-center">
-        <button class="btn btn-primary btn-lg">Contact Us</button>
-        <p class="mt-4">
-          Copyright &copy; 2023 by Flasky
-        </p>
+        <a class="btn btn-primary btn-lg" href=" mailto:giciorhub@proton.me?subject=Qustion%20about%20Job%20Openings&body=My%20name%3A%20%3Cyour_name%3E%0D%0AMy%20question%3A%20%3Cyour_question%3E ">Contact Us</a>
+      
       </div>
       
     </div>
+
+    {% include 'footer.html' %}
   </body>
   
 </html>

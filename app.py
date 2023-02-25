@@ -40,5 +40,20 @@ def hello_world():
   return render_template("hello.html", jobs=JOBS, company_name='Flasky')
 
 
+@app.route("/about")
+def hello_about():
+  return hello_world()
+
+
+@app.route("/events")
+def hello_events():
+  return hello_world()
+
+
+@app.route("/learn")
+def hello_learn():
+  return hello_world()
+
+
 if __name__ == '__main__':
   app.run(host="0.0.0.0", debug=True)
