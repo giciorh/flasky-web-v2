@@ -6,17 +6,17 @@ JOBS = [{
   'id': 1,
   'title': 'Data Analyst',
   'location': 'Wrocław',
-  'salary': '10_000 zł'
+  'salary': '10 000 zł'
 }, {
   'id': 2,
   'title': 'Data Scientist',
   'location': 'Kraków',
-  'salary': '13_000 zł'
+  'salary': '13 000 zł'
 }, {
   'id': 3,
   'title': 'Frontend Engineer',
   'location': 'Gdańsk',
-  'salary': '9_000 zł'
+  'salary': '9 000 zł'
 }, {
   'id': 4,
   'title': 'Backend Engineer',
@@ -25,7 +25,7 @@ JOBS = [{
   'id': 5,
   'title': 'Junior Python Dev',
   'location': 'Poznań',
-  'salary': '6_000 zł'
+  'salary': '6 000 zł'
 }]
 
 
