@@ -1,5 +1,5 @@
 from flask import Flask, render_template, jsonify
-from database import load_jobs_from_db
+from database import load_jobs_from_db, load_job_from_db
 
 app = Flask(__name__)
 
@@ -30,7 +30,6 @@ app = Flask(__name__)
 # }]
 
 
-
 #dodano make api
 @app.route("/api/jobs")
 def list_jobs():
@@ -41,7 +40,23 @@ def list_jobs():
 @app.route("/")
 def hello_world():
   JOBS = load_jobs_from_db()
-  return render_template("hello.html", jobs=JOBS, company_name='Flasky')
+  return render_template("hello.html", jobs=JOBS)
+
+
+@app.route("/job/<id>")
+def show_job(id):
+  job = load_job_from_db(id)
+
+  if not job:
+    return "<h3>Not found</h3>", 404
+
+  return render_template('jobpage.html', job=job)
+
+
+# @app.route("/job/<id>")
+# def show_job(id):
+#   job = load_job_from_db(id)
+#   return jsonify(job)
 
 
 @app.route("/about")
