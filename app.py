@@ -1,5 +1,5 @@
-from flask import Flask, render_template, jsonify
-from database import load_jobs_from_db, load_job_from_db
+from flask import Flask, render_template, jsonify, request
+from database import load_jobs_from_db, load_job_from_db, add_application_to_db
 
 app = Flask(__name__)
 
@@ -13,20 +13,6 @@ app = Flask(__name__)
 #   'title': 'Data Scientist',
 #   'location': 'Kraków',
 #   'salary': '13 000 zł'
-# }, {
-#   'id': 3,
-#   'title': 'Frontend Engineer',
-#   'location': 'Gdańsk',
-#   'salary': '9 000 zł'
-# }, {
-#   'id': 4,
-#   'title': 'Backend Engineer',
-#   'location': 'Katowice',
-# }, {
-#   'id': 5,
-#   'title': 'Junior Python Dev',
-#   'location': 'Poznań',
-#   'salary': '6 000 zł'
 # }]
 
 
@@ -72,6 +58,17 @@ def hello_events():
 @app.route("/learn")
 def hello_learn():
   return hello_world()
+
+
+@app.route("/job/<id>/apply", methods=['post'])
+def apply_to_job(id):
+  data = request.form
+  job = load_job_from_db(id)
+
+  add_application_to_db(id, data)
+  return render_template("application_submitted.html",
+                         application=data,
+                         job=job)
 
 
 if __name__ == '__main__':
